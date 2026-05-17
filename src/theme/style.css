@@ -1,0 +1,94 @@
+/*
+Theme Name: WebFusion Home
+Theme URI: https://example.com/webfusion-home
+Author: Equipo AMPSIS
+Description: Tema principal para demostrar el despliegue automatizado de WordPress con Vagrant, Docker Compose y GitHub.
+Version: 1.0
+Text Domain: webfusion-home
+*/
+
+:root {
+  --bg: #f4f7fb;
+  --text: #152238;
+  --primary: #2855d9;
+  --secondary: #00a884;
+  --card: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+}
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 20px;
+}
+
+.card {
+  max-width: 940px;
+  width: 100%;
+  background: var(--card);
+  border-radius: 24px;
+  padding: 48px;
+  box-shadow: 0 20px 60px rgba(21, 34, 56, 0.12);
+}
+
+.badge {
+  display: inline-block;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(0, 168, 132, 0.12);
+  color: var(--secondary);
+  font-weight: 700;
+  font-size: 14px;
+  margin-bottom: 24px;
+}
+
+h1 {
+  margin: 0 0 20px;
+  font-size: clamp(36px, 6vw, 64px);
+  line-height: 1.05;
+}
+
+p {
+  font-size: 20px;
+  line-height: 1.6;
+  margin: 0 0 28px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+  margin-top: 36px;
+}
+
+.feature {
+  padding: 22px;
+  border-radius: 18px;
+  background: #f7f9ff;
+  border: 1px solid #e6ecff;
+}
+
+.feature strong {
+  display: block;
+  color: var(--primary);
+  margin-bottom: 8px;
+}
+
+code {
+  background: #edf1ff;
+  color: var(--primary);
+  padding: 3px 7px;
+  border-radius: 6px;
+}
