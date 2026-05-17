@@ -2,7 +2,7 @@
 
 <main class="hero">
   <section class="card">
-    <span class="badge">WebFusion Digital S.L.</span>
+    <span class="badge">Proyecto Ampliación</span>
     <h1>Despliegue WordPress automatizado</h1>
     <p>
       Esta pagina principal se actualiza desde GitHub mediante un contenedor Git,
@@ -23,6 +23,9 @@
         <strong>Docker Compose</strong>
         Despliega WordPress, MySQL, WP-CLI y el contenedor de sincronizacion Git.
       </article>
+    </div>
+    <div>
+      Hecho por Ismael Cuadrado, Óscar Roldán y Daniel Antolín
     </div>
   </section>
 </main>
