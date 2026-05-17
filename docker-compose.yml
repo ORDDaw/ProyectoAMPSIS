@@ -1,5 +1,5 @@
 #Hecho por Ismael Cuadrado, Óscar Roldán y Daniel Antolín
-servicesservices:
+services:
   db:
     image: mysql:8.0
     container_name: webfusion-db
@@ -44,8 +44,8 @@ servicesservices:
     environment:
       GIT_REPO_URL: ${GIT_REPO_URL}
       GIT_BRANCH: ${GIT_BRANCH:-main}
-      THEME_SOURCE_PATH: ${THEME_SOURCE_PATH:-src/theme}
-      THEME_NAME: ${THEME_NAME:-webfusion-home}
+      THEMES_SOURCE_PATH: ${THEMES_SOURCE_PATH}
+      ACTIVE_THEME: ${ACTIVE_THEME}
     volumes:
       - wordpress_data:/var/www/html
       - ./scripts/theme-sync.sh:/scripts/theme-sync.sh:ro

@@ -56,7 +56,9 @@ Vagrant.configure("2") do |config|
 
     REPO_URL=$(grep '^GIT_REPO_URL=' .env | cut -d '=' -f2-)
 
-    if [ -z "$REPO_URL" ] || echo "$REPO_URL" | grep -Eq "USUARIO|TU-USUARIO|REPOSITORIO"; then
+    REPO_URL=$(grep '^GIT_REPO_URL=' .env | cut -d '=' -f2-)
+
+    if [ -z "$REPO_URL" ] || echo "$REPO_URL" | grep -Eq "USUARIO|TU-USUARIO|REPOSITORIO|link del repositorio"; then
       echo "[Vagrant] ERROR: Debes editar .env y cambiar GIT_REPO_URL por la URL real de tu repositorio GitHub."
       exit 1
     fi
@@ -96,7 +98,9 @@ Vagrant.configure("2") do |config|
         --skip-email
     fi
 
-    docker compose run --rm wp-cli wp --allow-root --path=/var/www/html theme activate webfusion-home
+    ACTIVE_THEME=$(grep '^ACTIVE_THEME=' .env | cut -d '=' -f2-)
+
+    docker compose run --rm wp-cli wp --allow-root --path=/var/www/html theme activate "$ACTIVE_THEME"
     docker compose run --rm wp-cli wp --allow-root --path=/var/www/html option update blogdescription "Despliegue automatizado con Vagrant, Docker y GitHub"
 
     echo "[Vagrant] Proyecto desplegado correctamente."

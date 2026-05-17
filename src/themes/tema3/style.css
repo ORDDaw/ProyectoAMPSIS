@@ -1,0 +1,39 @@
+/*
+Theme Name: Tema Minimalista
+Author: Ismael Cuadrado, Oscar Roldan y Daniel Antolin
+Description: Tema minimalista para WordPress desplegado automaticamente con Vagrant, Docker y GitHub.
+Version: 1.0
+*/
+
+body {
+    margin: 0;
+    font-family: Georgia, serif;
+    background: #ffffff;
+    color: #222222;
+}
+
+.wrapper {
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 70px 25px;
+}
+
+h1 {
+    font-size: 46px;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    color: #666666;
+    font-size: 20px;
+    margin-bottom: 40px;
+}
+
+.section {
+    border-top: 1px solid #dddddd;
+    padding: 28px 0;
+}
+
+.section h2 {
+    margin-top: 0;
+}
