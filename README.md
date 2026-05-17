@@ -1,5 +1,7 @@
 # Proyecto AMPSIS - Despliegue automatizado de WordPress
 
+** Hecho por Ismael Cuadrado, Óscar Roldán y Daniel Antolín **
+
 ## 1. Objetivo
 
 Este proyecto implementa un entorno reproducible para desplegar y actualizar la pagina principal de un sitio WordPress usando:
@@ -11,28 +13,11 @@ Este proyecto implementa un entorno reproducible para desplegar y actualizar la 
 
 La actualizacion del contenido se realiza con un unico comando:
 
-```bash
+
 vagrant provision
-```
 
-## 2. Arquitectura
 
-La arquitectura sigue este flujo:
-
-```text
-Ordenador local
-   |
-Vagrant
-   |
-Maquina virtual Ubuntu
-   |
-Docker Compose
-   |-----------------------------|
-   |                             |
-WordPress + MySQL          Contenedor theme-sync
-                                 |
-                              GitHub
-```
+## 2.Arquitectura
 
 Servicios definidos en `docker-compose.yml`:
 
@@ -45,22 +30,22 @@ Servicios definidos en `docker-compose.yml`:
 
 ## 3. Estructura del repositorio
 
-```text
-.
-├── Vagrantfile
-├── docker-compose.yml
-├── .env.example
-├── .gitignore
-├── README.md
-├── scripts/
-│   └── theme-sync.sh
-└── src/
-    └── theme/
-        ├── front-page.php
-        ├── functions.php
-        ├── index.php
-        └── style.css
-```
+
+
+   Vagrantfile
+   docker-compose.yml
+   .env.example
+   .gitignore
+   README.md
+   scripts/
+      theme-sync.sh
+   src/
+      theme/
+         front-page.php
+         functions.php
+         index.php
+         style.css
+
 
 ## 4. Requisitos previos
 
@@ -81,7 +66,7 @@ git init
 git add .
 git commit -m "Proyecto WordPress automatizado"
 git branch -M main
-git remote add origin https://github.com/USUARIO/REPOSITORIO.git
+git remote add origin "link del repositorio" ( en nuestro caso ->https://github.com/ORDDaw/ProyectoAMPSIS.git)
 git push -u origin main
 ```
 
@@ -96,13 +81,13 @@ cp .env.example .env
 Editar esta linea:
 
 ```env
-GIT_REPO_URL=https://github.com/USUARIO/REPOSITORIO.git
+GIT_REPO_URL="link del repositorio"
 ```
 
 Debe quedar con la URL real del repositorio GitHub. Ejemplo:
 
 ```env
-GIT_REPO_URL=https://github.com/dnlantolin/webfusion-wordpress-deploy.git
+GIT_REPO_URL=https://github.com/ORDDaw/ProyectoAMPSIS.git
 ```
 
 ## 7. Despliegue inicial
@@ -144,6 +129,10 @@ Password: admin1234
 ## 8. Actualizacion automatica del contenido
 
 Modificar cualquier archivo del tema, por ejemplo:
+
+El index.php está en caso de que no haber niguna otra página, 
+la página que wordpress usará por defecto es front-page.php.
+Para que salga el contenido editado hay que modificar el front-page.
 
 ```text
 src/theme/index.php
@@ -207,15 +196,4 @@ Eliminar la maquina virtual:
 vagrant destroy
 ```
 
-## 10. Relacion con los requisitos del proyecto
 
-| Requisito | Implementacion |
-| --- | --- |
-| Maquina virtual Ubuntu con Vagrant | `Vagrantfile` usa `ubuntu/jammy64`. |
-| Configuracion automatica | El aprovisionamiento instala Docker y ejecuta Docker Compose. |
-| Docker y Docker Compose | Instalados automaticamente dentro de la VM. |
-| Contenedor WordPress | Servicio `wordpress`. |
-| Contenedor que obtiene contenido desde Git | Servicio `theme-sync`. |
-| Repositorio GitHub con archivos PHP | Carpeta `src/theme`. |
-| Actualizacion con `vagrant provision` | Provisioner `run: "always"` ejecuta sincronizacion y activacion del tema. |
-| Documentacion tecnica | Este `README.md`. |
