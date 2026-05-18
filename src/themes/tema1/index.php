@@ -3,7 +3,7 @@
 <main class="hero">
   <section class="card">
     <span class="badge">Proyecto Ampliación</span>
-    <h1>Despliegue WordPress automatizado</h1>
+    <h1>Prueba 1</h1>
     <p>
       Esta pagina principal se actualiza desde GitHub mediante un contenedor Git,
       Docker Compose y Vagrant. Para publicar cambios solo hay que subirlos al
